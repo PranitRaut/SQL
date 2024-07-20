@@ -1,0 +1,30 @@
+use classicmodels;
+
+show tables;
+
+select * from customers;
+
+-- ascending 
+select * from customers order by creditlimit asc;
+
+-- descending 
+select * from customers order by creditlimit desc;
+
+-- where 
+select * from customers where customernumber=141;
+
+-- update
+update customers set country = 'England' where customernumber=141;
+
+-- count
+select count(creditlimit) from customers;
+select count(creditlimit) from customers where creditlimit=21000;
+
+-- sum
+select sum(creditlimit) from customers;
+
+
+ -- Distinct
+select distinct city from customers;
+select distinct count(city) from customers;
+
