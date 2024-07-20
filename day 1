@@ -1,0 +1,68 @@
+-- show databases
+show databases;
+
+-- create databases
+create database pranit;
+
+-- select databases
+use pranit;
+
+-- create a table
+create table employee(
+	id int,
+    emp_name varchar(100),
+    salary bigint,
+    city varchar(100)
+);
+-- show table
+select * from employee;
+
+-- enter single record into data table
+insert into employee values (1,"john",125890,"Mumbai");
+
+
+create table employee1(
+	  id int primary key,
+      emp_name varchar(100),
+      salary bigint,
+      city varchar(100)
+);
+
+select * from employee1;
+
+insert into employee1 values (1,"tom",78965,"Pune"), (2,"Jerry",25698,"thane");
+
+insert into employee1 values (3,"john",78985,"mumbai"), (4,"koy",55698,"goa"),(5,"dom",70965,"york"), (6,"som",50698,"dubai"),(7,"henry",98965,"nashik"), (8,"anne",45698,"boriwali");
+
+create table employee2(
+		emp_id int auto_increment primary key,
+      emp_name varchar(100),
+	  emp_city varchar(100),
+      emp_email varchar(100) unique key,
+      emp_mobile bigint unique key,
+      emp_salary bigint
+);
+
+select * from employee2;
+
+insert into employee2 (emp_name, emp_city,emp_email,emp_mobile,emp_salary) values
+("Tom","Mumbai","tom@emp.in",9876543201,89520),
+("Henry","Mumbai","Henry@emp.in",9876543285,79500),
+("Leo","Mumbai","Leo@emp.in",9876598201,80520),
+("Jack","Goa","jack@emp.in",9870043201,80000),
+("James","Boriwali","james@emp.in",9970543201,90000),
+("Michael","Malad","michael@emp.in",9636543201,78000),
+("Jackson","Kandivali","jackson@emp.in",9802543201,65021),
+("Daniel","Sion","daniel@emp.in",9876537201,96000);
+
+
+-- find data where
+select emp_name,emp_email,emp_mobile from employee2;
+
+select * from employee2 where emp_city = "mumbai";
+
+select * from employee2 where emp_salary = "90000";
+
+select * from employee2 where emp_salary < "90000";
+
+select * from employee2 where emp_salary > "90000";
