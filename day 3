@@ -28,3 +28,79 @@ select sum(creditlimit) from customers;
 select distinct city from customers;
 select distinct count(city) from customers;
 
+
+
+-- Group by
+select city from customers group by city;
+
+select city, count(city) as total_city from customers group by city;
+
+
+select country from customers group by country;
+
+select country, count(country) from customers group by country;
+
+-- in (used for only single column)
+
+select * from customers where country in ("Australia", "Canada");
+
+select * from customers where country ="USA" and state ="CA" and creditlimit > 60000; 
+
+
+-- like
+
+select customername , phone, city, state, country, creditlimit from customers;
+
+select customername , phone, city, state, country, creditlimit from customers where customername like "a%";
+--  (after letter % means starting word of name)
+
+select customername , phone, city, state, country, creditlimit from customers where customername like "%a%";
+--  (both side % means letter comes in center of word)
+
+select customername , phone, city, state, country, creditlimit from customers where customername like "%e";
+--  (before letter % means ending word of name)
+
+
+-- limit/top 
+
+select * from customers limit 2;
+
+-- union ( used for margin 2 tables columns in 1 column)
+
+create database p4n1;
+use p4n1;
+show tables;
+CREATE TABLE Customers (
+    CustomerID INT PRIMARY KEY,
+    FirstName VARCHAR(50),
+    LastName VARCHAR(50),
+    Email VARCHAR(100)
+);
+
+CREATE TABLE Suppliers (
+    SupplierID INT PRIMARY KEY,
+    CompanyName VARCHAR(100),
+    Email VARCHAR(100)
+);
+
+INSERT INTO Customers (CustomerID, FirstName, LastName, Email)
+VALUES
+    (1, 'Pankaj', 'Sharma', 'pankaj@codeswithpankaj.com'),
+    (2, 'Nishant', 'Patel', 'nishant@codeswithpankaj.com'),
+    (3, 'Kiran', 'Desai', 'kiran@codeswithpankaj.com'),
+    (4, 'Tanvi', 'Mehta', 'tanvi@codeswithpankaj.com'),
+    (5, 'Kritek', 'Singh', 'kritek@codeswithpankaj.com');
+
+INSERT INTO Suppliers (SupplierID, CompanyName, Email)
+VALUES
+    (101, 'ABC Inc.', 'abc@codeswithpankaj.com'),
+    (102, 'XYZ Ltd.', 'xyz@codeswithpankaj.com'),
+    (103, 'Company A', 'companya@p4n.in');
+
+select * from customers;
+
+select * from suppliers;
+
+select email from customers union select email from suppliers;
+
+
