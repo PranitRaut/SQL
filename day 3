@@ -104,3 +104,13 @@ select * from suppliers;
 select email from customers union select email from suppliers;
 
 
+-- not 
+
+select * from customers where not country = "USA";
+
+select * from customers where not country like "U%";
+
+-- having 
+select creditlimit , count(creditlimit) as total_count from customers group by creditlimit having  min(creditlimit);
+
+
