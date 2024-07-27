@@ -1,0 +1,39 @@
+-- SQL functions
+
+-- CURDATE() : Returns the current date.
+select curdate();
+
+-- CURTIME() : Returns the current time.
+select curtime();
+
+use classicmodels;
+show tables;
+
+
+select * from orders;
+
+
+-- DATEDIFF(date1, date2): Calculates the difference in days between two dates.
+-- SELECT event_name, DATEDIFF(event_date, CURDATE()) AS days_until_event FROM table_name;
+select ordernumber , datediff(shippeddate , orderdate) as total_date from orders;
+
+select ordernumber , datediff(curdate(), orderdate) as total_date from orders;
+
+-- DATE_ADD(date, INTERVAL value unit): Adds a specific interval to a date.
+-- SELECT event_name, event_date, DATE_ADD(event_date, INTERVAL 7 DAY) AS new_date FROM table_name;
+select ordernumber , shippeddate , date_add(shippeddate , interval 7 day) as new_date from orders;
+select ordernumber , shippeddate , date_add(shippeddate , interval 10 month) as new_date from orders;
+select ordernumber , shippeddate , date_add(shippeddate , interval 7 year) as new_date from orders;
+
+-- DATE_SUB(date, INTERVAL value unit): Subtracts a specific interval from a date.
+-- SELECT event_name, event_date, DATE_SUB(event_date, INTERVAL 3 MONTH) AS new_date FROM table_name;
+select ordernumber , shippeddate , date_sub(shippeddate , interval 7 day) as new_date from orders;
+select ordernumber , shippeddate , date_sub(shippeddate , interval 10 month) as new_date from orders;
+select ordernumber , shippeddate , date_sub(shippeddate , interval 7 year) as new_date from orders;
+
+-- DATE_FORMAT(date, format): Formats a date as a string according to a specified format.
+-- SELECT event_name, DATE_FORMAT(event_date, '%Y-%m-%d') AS formatted_date FROM table_name;
+select ordernumber , shippeddate , date_format(shippeddate, '%Y-%m-%d') as formatted_date from orders;
+select ordernumber , shippeddate , date_format(shippeddate, '%d-%m-%Y') as formatted_date from orders;
+
+
