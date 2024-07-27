@@ -1,0 +1,76 @@
+-- string functions 
+
+use classicmodels;
+ show tables;
+ select * from customers;
+ select * from employees;
+ 
+-- CONCAT: This function is used to concatenate two or more strings together.
+-- SELECT CONCAT(first_name, ' ', last_name) AS full_name FROM table_name;
+select concat(contactfirstname, '  ' , contactlastname) as full_name from customers;
+
+-- SUBSTRING: This function is used to extract a substring from a string.
+-- SELECT SUBSTRING(email, 1, CHARINDEX('@', email) - 1) AS username FROM table_name;
+select substring(email, 1, charindex('@',email) -1) as username from employees;
+
+
+-- UPPER: This function is used to convert a string to uppercase.
+-- SELECT UPPER(city) AS city_uppercase FROM table_name;
+select upper(firstname) as name_uppercase from employees;
+
+-- LOWER: This function is used to convert a string to lowercase.
+-- SELECT LOWER(city) AS city_lowercase FROM table_name;
+select lower(firstname) as name_lowercase from employees;
+
+
+-- LEFT: This function is used to extract a specified number of characters from the left side of a string.
+-- SELECT LEFT(first_name, 3) AS first_name_short FROM table_name;
+select left(firstname , 4) as name_short from employees;
+
+-- RIGHT: This function is used to extract a specified number of characters from the right side of a string.
+-- SELECT RIGHT(last_name, 3) AS last_name_short FROM table_name;
+select right(lastname , 2) as name_short from employees;
+
+
+-- LENGTH: This function is used to get the length of a string.
+-- SELECT first_name, LENGTH(first_name) AS name_length FROM table_name;
+select firstname, length(firstname) as name_length from employees;
+
+
+-- REPLACE: This function is used to replace all occurrences of a substring within a string with another substring.
+-- SELECT REPLACE(city, 'a', 'X') AS city_replaced FROM table_name;
+select lastname, replace(lastname, 'M', 'S') as city_replaced from employees;
+
+
+-- TRIM: This function is used to remove leading and trailing spaces from a string.
+-- SELECT TRIM(city) AS city_trimmed FROM table_name;
+select jobtitle, trim(jobtitle) as update_trimmed from employees;
+
+
+
+-- LTRIM: This function is used to remove leading spaces from a string.
+-- SELECT LTRIM(city) AS city_ltrimmed FROM table_name;
+select jobtitle, ltrim(jobtitle) as update_ltrimmed from employees;
+
+-- RTRIM: This function is used to remove trailing spaces from a string.
+-- SELECT RTRIM(city) AS city_rtrimmed FROM table_name;
+select rtrim(jobtitle) as update_rtrimmed from employees;
+
+
+-- CHARINDEX: This function is used to find the starting position of a substring within a string.
+-- SELECT CHARINDEX('a', city) AS position_of_a FROM p4n_employee;
+select charindex('a', firstname) as postion from employees;
+
+
+-- REPLICATE: This function is used to repeat a string a specified number of times.
+-- SELECT REPLICATE('abc', 3) AS repeated_string FROM p4n_employee LIMIT 1;
+select replicate('firstname', 3) as repeated_string from employees limit 1;
+
+-- SPACE: This function is used to generate a string consisting of the specified number of spaces.
+-- SELECT SPACE(5) AS spaces FROM p4n_employee LIMIT 1;
+select firstname, space(5) as spaces from employees limit 1;
+
+
+-- REVERSE: This function is used to reverse a string.
+-- SELECT REVERSE(city) AS reversed_city FROM p4n_employee LIMIT 1;			
+select firstname, reverse(firstname) as reversed_name from employees;
