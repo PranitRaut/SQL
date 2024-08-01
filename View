@@ -1,0 +1,15 @@
+view 
+
+-- create a view
+create view ascending as 
+select * from customers order by Firstname asc;
+
+-- for run the view command
+select * from ascending;
+
+
+-- create a view 
+create view dataf as
+select * from customers; 
+-- run view
+select * from  dataf;
